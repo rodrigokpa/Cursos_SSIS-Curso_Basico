@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="conexao3"
+  DTS:DTSID="{b61fca31-9b83-4a04-8d8d-1aefeae1607a}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-RJM4FNE;Initial Catalog=BD_CURSO_SSIS;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Pacote_1-{00667A7E-C4C2-47FD-8ED2-60DED1A55D45}DESKTOP-RJM4FNE.BD_CURSO_SSIS;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

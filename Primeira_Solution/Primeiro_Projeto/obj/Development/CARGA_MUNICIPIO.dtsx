@@ -1,0 +1,747 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/29/2024 11:59:31 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-RJM4FNE"
+  DTS:CreatorName="DESKTOP-RJM4FNE\rodri"
+  DTS:DTSID="{75745588-02F5-4507-8893-7817A55405AE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{1503E296-BA84-452B-9C28-54363B5835B2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-RJM4FNE.BD_CURSO_SSIS1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B2835C00-3BB9-40F9-B03F-16D53CD5F28B}"
+      DTS:ObjectName="DESKTOP-RJM4FNE.BD_CURSO_SSIS1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-RJM4FNE;Initial Catalog=BD_CURSO_SSIS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{B2835C00-3BB9-40F9-B03F-16D53CD5F28B}DESKTOP-RJM4FNE.BD_CURSO_SSIS1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{2E6B2E2B-E43C-4FC9-AB06-D1AB1BF27E31}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\rodri\OneDrive\Área de Trabalho\MUNICIPIO - 1.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{40567428-3F90-428C-8DE0-F49076A5FE65}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\rodri\OneDrive\Área de Trabalho\MUNICIPIO - 2.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarefa Fluxo de Dados"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarefa Fluxo de Dados"
+      DTS:DTSID="{A4A00184-7574-4B22-B1A1-288812B424CF}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarefa Fluxo de Dados"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarefa Fluxo de Dados\Destino OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino OLE DB"
+              name="Destino OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">[MUNICIPIO]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se as colunas que contêm null terão null inserido no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica as opções a serem usadas com o carregamento rápido. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica quando confirmações são emitidas durante a inserção de dados. Um valor de 0 especifica que uma confirmação será emitida ao final da inserção de dados. Aplicável somente se o carregamento rápido estiver ativado."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarefa Fluxo de Dados\Destino OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-RJM4FNE.BD_CURSO_SSIS1]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-RJM4FNE.BD_CURSO_SSIS1]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB]"
+                  errorOrTruncationOperation="Inserir"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de Destino OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[COD# MUNIC]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="COD# MUNIC"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[COD_MUNIC]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Unir Tudo.Outputs[Unir Tudo Saída 1].Columns[COD# MUNIC]" />
+                    <inputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[NOME DO MUNICÍPIO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOME DO MUNICÍPIO"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[NOME_MUNICÍPIO]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Unir Tudo.Outputs[Unir Tudo Saída 1].Columns[NOME DO MUNICÍPIO]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[COD_MUNIC]"
+                      dataType="wstr"
+                      length="255"
+                      name="COD_MUNIC" />
+                    <externalMetadataColumn
+                      refId="Package\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[NOME_MUNICÍPIO]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOME_MUNICÍPIO" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarefa Fluxo de Dados\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Destino OLE DB"
+                  synchronousInputId="Package\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarefa Fluxo de Dados\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarefa Fluxo de Dados\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarefa Fluxo de Dados\Origem do Excel"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origem do Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;1"
+              description="Origem do Excel"
+              name="Origem do Excel"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">COD_MUNICIPIO$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="A variável que contém o comando SQL a ser executado."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="O mapeamento de parâmetros no comando SQL para variáveis."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarefa Fluxo de Dados\Origem do Excel.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Origem do Excel]"
+                  name="Saída de Origem do Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Origem do Excel].Columns[COD# MUNIC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Origem do Excel].ExternalColumns[COD# MUNIC]"
+                      length="255"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Origem do Excel].Columns[COD# MUNIC]"
+                      name="COD# MUNIC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Origem do Excel].Columns[NOME DO MUNICÍPIO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Origem do Excel].ExternalColumns[NOME DO MUNICÍPIO]"
+                      length="255"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Origem do Excel].Columns[NOME DO MUNICÍPIO]"
+                      name="NOME DO MUNICÍPIO"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Origem do Excel].ExternalColumns[COD# MUNIC]"
+                      dataType="wstr"
+                      length="255"
+                      name="COD# MUNIC" />
+                    <externalMetadataColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Origem do Excel].ExternalColumns[NOME DO MUNICÍPIO]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOME DO MUNICÍPIO" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Erro de Origem do Excel]"
+                  isErrorOut="true"
+                  name="Saída de Erro de Origem do Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[COD# MUNIC]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[COD# MUNIC]"
+                      name="COD# MUNIC" />
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[NOME DO MUNICÍPIO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[NOME DO MUNICÍPIO]"
+                      name="NOME DO MUNICÍPIO" />
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarefa Fluxo de Dados\Origem do Excel 1"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origem do Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;1"
+              description="Origem do Excel"
+              name="Origem do Excel 1"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">COD_MUNICIPIO$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="A variável que contém o comando SQL a ser executado."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="O mapeamento de parâmetros no comando SQL para variáveis."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Origem do Excel]"
+                  name="Saída de Origem do Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Origem do Excel].Columns[COD# MUNIC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Origem do Excel].ExternalColumns[COD# MUNIC]"
+                      length="255"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Origem do Excel].Columns[COD# MUNIC]"
+                      name="COD# MUNIC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Origem do Excel].Columns[NOME DO MUNICÍPIO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Origem do Excel].ExternalColumns[NOME DO MUNICÍPIO]"
+                      length="255"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Origem do Excel].Columns[NOME DO MUNICÍPIO]"
+                      name="NOME DO MUNICÍPIO"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Origem do Excel].ExternalColumns[COD# MUNIC]"
+                      dataType="wstr"
+                      length="255"
+                      name="COD# MUNIC" />
+                    <externalMetadataColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Origem do Excel].ExternalColumns[NOME DO MUNICÍPIO]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOME DO MUNICÍPIO" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Erro de Origem do Excel]"
+                  isErrorOut="true"
+                  name="Saída de Erro de Origem do Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Erro de Origem do Excel].Columns[COD# MUNIC]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Erro de Origem do Excel].Columns[COD# MUNIC]"
+                      name="COD# MUNIC" />
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Erro de Origem do Excel].Columns[NOME DO MUNICÍPIO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Erro de Origem do Excel].Columns[NOME DO MUNICÍPIO]"
+                      name="NOME DO MUNICÍPIO" />
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Erro de Origem do Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Erro de Origem do Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Erro de Origem do Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Erro de Origem do Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarefa Fluxo de Dados\Unir Tudo"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Unir Tudo;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina linhas de vários fluxos de dados sem classificação. Por exemplo, adicione novamente as linhas a um fluxo de dados após a correção de erros. Se a classificação for importante, é recomendável usar a transformação Mesclagem."
+              name="Unir Tudo"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Tarefa Fluxo de Dados\Unir Tudo.Inputs[Unir Tudo Entrada 1]"
+                  name="Unir Tudo Entrada 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Unir Tudo.Inputs[Unir Tudo Entrada 1].Columns[COD# MUNIC]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="COD# MUNIC"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Origem do Excel].Columns[COD# MUNIC]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Identificação de linhagem de coluna de saída"
+                          name="OutputColumnLineageID">#{Package\Tarefa Fluxo de Dados\Unir Tudo.Outputs[Unir Tudo Saída 1].Columns[COD# MUNIC]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Unir Tudo.Inputs[Unir Tudo Entrada 1].Columns[NOME DO MUNICÍPIO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOME DO MUNICÍPIO"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Origem do Excel].Columns[NOME DO MUNICÍPIO]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Identificação de linhagem de coluna de saída"
+                          name="OutputColumnLineageID">#{Package\Tarefa Fluxo de Dados\Unir Tudo.Outputs[Unir Tudo Saída 1].Columns[NOME DO MUNICÍPIO]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Tarefa Fluxo de Dados\Unir Tudo.Inputs[Entrada Unir Tudo 1]"
+                  hasSideEffects="true"
+                  name="Entrada Unir Tudo 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Unir Tudo.Inputs[Entrada Unir Tudo 1].Columns[COD# MUNIC]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="COD# MUNIC"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Origem do Excel].Columns[COD# MUNIC]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Identificação de linhagem de coluna de saída"
+                          name="OutputColumnLineageID">#{Package\Tarefa Fluxo de Dados\Unir Tudo.Outputs[Unir Tudo Saída 1].Columns[COD# MUNIC]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Unir Tudo.Inputs[Entrada Unir Tudo 1].Columns[NOME DO MUNICÍPIO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOME DO MUNICÍPIO"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Origem do Excel].Columns[NOME DO MUNICÍPIO]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Identificação de linhagem de coluna de saída"
+                          name="OutputColumnLineageID">#{Package\Tarefa Fluxo de Dados\Unir Tudo.Outputs[Unir Tudo Saída 1].Columns[NOME DO MUNICÍPIO]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Tarefa Fluxo de Dados\Unir Tudo.Inputs[Entrada Unir Tudo 2]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Entrada Unir Tudo 2">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarefa Fluxo de Dados\Unir Tudo.Outputs[Unir Tudo Saída 1]"
+                  name="Unir Tudo Saída 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Unir Tudo.Outputs[Unir Tudo Saída 1].Columns[COD# MUNIC]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarefa Fluxo de Dados\Unir Tudo.Outputs[Unir Tudo Saída 1].Columns[COD# MUNIC]"
+                      name="COD# MUNIC" />
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Unir Tudo.Outputs[Unir Tudo Saída 1].Columns[NOME DO MUNICÍPIO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarefa Fluxo de Dados\Unir Tudo.Outputs[Unir Tudo Saída 1].Columns[NOME DO MUNICÍPIO]"
+                      name="NOME DO MUNICÍPIO" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarefa Fluxo de Dados.Paths[Saída de Origem do Excel]"
+              endId="Package\Tarefa Fluxo de Dados\Unir Tudo.Inputs[Unir Tudo Entrada 1]"
+              name="Saída de Origem do Excel"
+              startId="Package\Tarefa Fluxo de Dados\Origem do Excel.Outputs[Saída de Origem do Excel]" />
+            <path
+              refId="Package\Tarefa Fluxo de Dados.Paths[Saída de Origem do Excel1]"
+              endId="Package\Tarefa Fluxo de Dados\Unir Tudo.Inputs[Entrada Unir Tudo 1]"
+              name="Saída de Origem do Excel"
+              startId="Package\Tarefa Fluxo de Dados\Origem do Excel 1.Outputs[Saída de Origem do Excel]" />
+            <path
+              refId="Package\Tarefa Fluxo de Dados.Paths[Unir Tudo Saída 1]"
+              endId="Package\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB]"
+              name="Unir Tudo Saída 1"
+              startId="Package\Tarefa Fluxo de Dados\Unir Tudo.Outputs[Unir Tudo Saída 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="184,41.6"
+          Id="Package\Tarefa Fluxo de Dados"
+          TopLeft="249.999986340603,131.733332417276" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tarefa Fluxo de Dados">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Tarefa Fluxo de Dados\Origem do Excel"
+          TopLeft="89.166661794815,44.1999996926387" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Tarefa Fluxo de Dados\Origem do Excel 1"
+          TopLeft="401.666644720568,50.4666670222415" />
+        <NodeLayout
+          Size="124,41.6"
+          Id="Package\Tarefa Fluxo de Dados\Unir Tudo"
+          TopLeft="229.999987433354,162.066665539675" />
+        <EdgeLayout
+          Id="Package\Tarefa Fluxo de Dados.Paths[Saída de Origem do Excel]"
+          TopLeft="166.766661794815,85.7999996926387">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125.233325638539,76.2666658470366"
+              Start="0,0"
+              End="125.233325638539,68.7666658470366">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.1333329235183" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.1333329235183"
+                    Point2="0,38.1333329235183"
+                    Point3="4,38.1333329235183" />
+                  <mssgle:LineSegment
+                    End="121.233325638539,38.1333329235183" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.233325638539,38.1333329235183"
+                    Point2="125.233325638539,38.1333329235183"
+                    Point3="125.233325638539,42.1333329235183" />
+                  <mssgle:LineSegment
+                    End="125.233325638539,68.7666658470366" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarefa Fluxo de Dados.Paths[Saída de Origem do Excel1]"
+          TopLeft="479.266644720568,92.0666670222415">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-167.933323953881,69.9999985174339"
+              Start="0,0"
+              End="-167.933323953881,62.4999985174339">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.4649672746583" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.4649672746583"
+                    Point2="0,41.4649672746583"
+                    Point3="-4,41.4649672746583" />
+                  <mssgle:LineSegment
+                    End="-163.933323953881,41.4649672746583" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-163.933323953881,41.4649672746583"
+                    Point2="-167.933323953881,41.4649672746583"
+                    Point3="-167.933323953881,45.4649672746583" />
+                  <mssgle:LineSegment
+                    End="-167.933323953881,62.4999985174339" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Tarefa Fluxo de Dados\Destino OLE DB"
+          TopLeft="211.66665510171,270.399998119672" />
+        <EdgeLayout
+          Id="Package\Tarefa Fluxo de Dados.Paths[Unir Tudo Saída 1]"
+          TopLeft="290.433321267532,203.666665539675">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66.7333325799969"
+              Start="0,0"
+              End="0,59.2333325799969">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.2333325799969" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarefa Fluxo de Dados\Origem do Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarefa Fluxo de Dados\Origem do Excel 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarefa Fluxo de Dados\Destino OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
